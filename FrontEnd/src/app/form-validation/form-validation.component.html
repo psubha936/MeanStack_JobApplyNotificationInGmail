@@ -1,0 +1,107 @@
+<!-- <button (click)="check()">Check</button> -->
+<div class="max-w-md mx-auto">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name:</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="name" type="text" placeholder="Enter your name" name="Name" ngModel #name="ngModel" required>
+        <small class="text-red-500" *ngIf="!name.valid && name.touched || !name.dirty && myForm.submitted ">Please enter your name </small>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Email:</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="phone" type="email" placeholder="Enter your Mail id" name="Mail" ngModel required email #mail="ngModel">
+        <small class="text-red-500" *ngIf="!mail.valid && mail.touched || !mail.dirty && myForm.submitted ">Please enter your Email id </small>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone:</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="phone" type="tel" placeholder="Enter your phone number" name="MobileNo" ngModel required #mobile="ngModel">
+        <small class="text-red-500" *ngIf="!mobile.valid && mobile.touched || !mobile.dirty && myForm.submitted">Please enter your Mobile Name </small>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="terms">
+        <input type="checkbox" class="form-checkbox text-blue-500" id="terms" name="IsValid" ngModel required #check="ngModel">
+        <span class="ml-2">I agree to the terms and conditions</span>
+      </label>
+      <small class="text-red-500" *ngIf="!check.valid && check.touched || !check.dirty && myForm.submitted">Please Select term and conditions </small>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="city">City:</label>
+      <select
+        class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        id="city" name="City" ngModel required #city="ngModel">
+        <option>New York</option>
+        <option>Los Angeles</option>
+        <option>Chicago</option>
+        <option>Houston</option>
+        <option>Philadelphia</option>
+      </select>
+      <small class="text-red-500" *ngIf="!city.valid && city.touched || !city.dirty && myForm.submitted">Please choose your City </small>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
+      <div class="flex">
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="gender" value="male" ngModel required #genderr="ngModel">
+          <span class="ml-2">Male</span>
+        </label>
+        <label class="inline-flex items-center ml-6">
+          <input type="radio" class="form-radio" name="gender" value="female" ngModel required #genderr="ngModel">
+          <span class="ml-2">Female</span>
+        </label>
+      </div>
+      <small class="text-red-500" *ngIf="!genderr.valid && genderr.touched || !genderr.dirty && myForm.submitted">Please choose your Gender </small>
+    </div>
+    <!-- <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Hobbies:</label>
+        <div class="flex flex-wrap gap-4">
+          <label class="inline-flex items-center w-full md:w-auto">
+            <input type="checkbox" class="form-radio" name="Hobbies" value="Cooking" ngModel>
+            <span class="ml-2">Cooking</span>
+          </label>
+          <label class="inline-flex items-center w-full md:w-auto">
+            <input type="checkbox" class="form-radio" name="Hobbies" value="Reading" ngModel>
+            <span class="ml-2">Reading</span>
+          </label>
+          <label class="inline-flex items-center w-full md:w-auto">
+            <input type="checkbox" class="form-radio" name="Hobbies" value="Sports" ngModel>
+            <span class="ml-2">Sports</span>
+          </label>
+          <label class="inline-flex items-center w-full md:w-auto">
+            <input type="checkbox" class="form-radio" name="Hobbies" value="Music" ngModel>
+            <span class="ml-2">Music</span>
+          </label>
+        </div>
+      </div> -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="hobbies">Skill:</label>
+      <select multiple
+        class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        id="hobbies" name="Skill" ngModel required #skill="ngModel">
+        <option>Angular</option>
+        <option>Java</option>
+        <option>NodeJs</option>
+        <option>AWS</option>
+        <option>C++</option>
+        <option>C</option>
+        <option>JavaScript</option>
+        <option>Python</option>
+      </select>
+      <small class="text-red-500" *ngIf="!skill.valid && skill.touched || !skill.dirty && myForm.submitted">Please choose your skill </small>
+    </div>
+    <div class="flex flex-wrap items-center justify-between">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-2 w-full md:w-auto">
+        Submit
+      </button>
+      <button
+        class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-2 w-full md:w-auto">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
